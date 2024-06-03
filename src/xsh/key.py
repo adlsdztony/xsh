@@ -5,7 +5,7 @@ import sys
 
 def keyAdd(args):
     if len(args) != 1:
-        print('Usage: xsh keygen <name>')
+        print('Usage: xsh key add <name>')
         sys.exit(1)
     name = args[0]
 
