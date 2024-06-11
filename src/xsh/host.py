@@ -62,10 +62,24 @@ def hostAdd(args):
 
 
 def hostList(args):
-    with open(os.path.expanduser('~/.ssh/config'), 'r') as f:
-        for line in f:
-            if line.startswith('Host '):
-                print(line.split()[1])
+    if len(args) == 0:
+
+        with open(os.path.expanduser('~/.ssh/config'), 'r') as f:
+            for line in f:
+                if line.startswith('Host '):
+                    print(line.split()[1])
+    else:
+        # list details
+        with open(os.path.expanduser('~/.ssh/config'), 'r') as f:
+            for line in f:
+                if line.startswith('Host ') and line.split()[1] == args[0]:
+                    name = line.split()[1]
+                    print("Host", name)
+                    for line in f:
+                        if line.strip() == '':
+                            break
+                        print('  ' + line.strip())
+                    
 
 
 def hostConnect(args):
@@ -140,4 +154,4 @@ def host(args):
 
 
 if __name__ == '__main__':
-    hostRemove(['aws'])
+    hostList(['arm'])
