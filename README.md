@@ -28,3 +28,16 @@ Commands:
   connect <name>
   rm <name>
 ```
+
+## For Maintainers
+
+### Build
+```bash
+py -m pip install --upgrade build
+py -m build
+```
+
+```bash
+py -m pip install --upgrade twine
+twine upload dist/*
+```
