@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: xsh
-Version: 0.1.2
+Version: 0.1.3
 Summary: ssh config manager
 Author-email: Zilong ZHOU <zzl0712@outlook.com>
 Maintainer-email: Zilong ZHOU <zzl0712@outlook.com>
@@ -64,7 +64,7 @@ Commands:
 
 Usage: xsh key <command> [args]
 Commands:
-  add <name>
+  add <name> [<path>]
   ls
   rm <name>
 

@@ -17,7 +17,7 @@ Commands:
 
 Usage: xsh key <command> [args]
 Commands:
-  add <name>
+  add <name> [<path>]
   ls
   rm <name>
 

@@ -47,18 +47,23 @@ def hostAdd(args):
         f.write(f'  HostName {host}\n')
         f.write(f'  User {user}\n')
         f.write(f'  IdentityFile {os.path.expanduser(f"~/.ssh/keys/{key}")}\n')
+    
+    if os.path.exists(os.path.expanduser(f'~/.ssh/keys/{key}.pub')):
+        print(f'Added {name} {host} {key}\n')
+        print("What's next?")
+        print("Upload the public key file through your cloud provider's dashboard")
+        print(f"    {os.path.expanduser(f'~/.ssh/keys/{key}.pub')}\n")
+        print("Or append the following public key to the host's ~/.ssh/authorized_keys file\n")
 
-    print(f'Added {name} {host} {key}\n')
-    print("What's next?")
-    print("Upload the public key file through your cloud provider's dashboard")
-    print(f"    {os.path.expanduser(f'~/.ssh/keys/{key}.pub')}\n")
-    print("Or append the following public key to the host's ~/.ssh/authorized_keys file\n")
+        with open(os.path.expanduser(f'~/.ssh/keys/{key}.pub'), 'r') as f:
+            print(f.read())
 
-    with open(os.path.expanduser(f'~/.ssh/keys/{key}.pub'), 'r') as f:
-        print(f.read())
-
-    print('Then run the following command to connect to the host')
-    print(f'    xsh {name}')
+        print('Then run the following command to connect to the host')
+        print(f'    xsh {name}')
+    else:
+        print('Key: {key} was added manually')
+        print('Run the following command to connect to the host')
+        print(f'    xsh {name}')
 
 
 def hostList(args):

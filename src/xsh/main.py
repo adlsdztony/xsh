@@ -28,9 +28,9 @@ def init(args):
 def help(args):
     print('Usage: xsh <command> [args]')
     print('Commands:')
-    print('  init')
-    print('  key <command> [args]')
-    print('  host <command> [args]')
+    print('  init            Initialize xsh')
+    print('  key <command> [args] Manage ssh keys')
+    print('  host <command> [args] Manage ssh hosts')
 
 
 
