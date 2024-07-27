@@ -25,7 +25,23 @@ def keyAdd(args):
     else:
         name = args[0]
         path = args[1]
-        os.system(f'cp {path} ~/.ssh/keys/{name}')
+        
+        if not os.path.exists(path):
+            print('Invalid path')
+            sys.exit(1)
+
+        savePath = os.path.expanduser(f'~/.ssh/keys/{name}')
+
+        # check if windows
+        if os.name == 'nt':
+            # copy file with python
+            with open(path, 'rb') as f:
+                content = f.read()
+                with open(savePath, 'wb') as f:
+                    f.write(content)
+        else:
+            os.system(f'cp {path} {savePath}')
+
         print(f'Added key {name}')
           
 
